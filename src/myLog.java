@@ -28,9 +28,7 @@ public class myLog {
         }
         result=result*2;
 
-        NumberFormat formatter = NumberFormat.getNumberInstance();
-        formatter.setMaximumFractionDigits(precision_k);
 
-        return Double.parseDouble(formatter.format(result));
+        return result;
     }
 }

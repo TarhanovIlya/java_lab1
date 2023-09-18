@@ -10,7 +10,7 @@ class Program {
     public static void main(String[] args) {
         try {
 
-
+            // ln((1 + x) / (1 - x))
             System.out.printf("enter a number (-1;1): ");
 
             InputStreamReader isr = new InputStreamReader(System.in);

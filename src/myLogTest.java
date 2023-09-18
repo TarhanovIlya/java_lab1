@@ -7,34 +7,50 @@ class myLogTest {
 
     @org.junit.jupiter.api.Test
     void solveTesr1() {
+        double num = 0.3;
+        int k = 5;
+        myLog a = new myLog(num,k);
 
         NumberFormat formatter = NumberFormat.getNumberInstance();
-        formatter.setMaximumFractionDigits(5);
+        formatter.setMaximumFractionDigits(k);
+        Double upsilon = Math.pow(10, -(k));
 
+        Double expected = Math.log((1+num)/(1-num));
+        Double actual = Double.parseDouble(formatter.format(a.Solve())); //trimmed result of myLog.Solve
 
-        myLog a = new myLog(0.5,5);
-        assertEquals(a.Solve(),Double.parseDouble(formatter.format(Math.log((1+0.5)/(1-0.5)))));
+        assertTrue(Math.abs(actual-expected)<upsilon);
+
     }
 
     @org.junit.jupiter.api.Test
-    void solveTesr2False() {
+    void solveTesr2() {
+        double num = 0.5;
+        int k = 2;
+        myLog a = new myLog(num,k);
 
         NumberFormat formatter = NumberFormat.getNumberInstance();
-        formatter.setMaximumFractionDigits(5);
+        formatter.setMaximumFractionDigits(k);
+        Double upsilon = Math.pow(10, -(k));
 
+        Double expected = Math.log((1+num)/(1-num));
+        Double actual = Double.parseDouble(formatter.format(a.Solve())); //trimmed result of myLog.Solve
 
-        myLog a = new myLog(0.8,5);
-        assertEquals(a.Solve(),Double.parseDouble(formatter.format(Math.log((1+0.5)/(1-0.5)))));
+        assertTrue(Math.abs(actual-expected)<upsilon);
     }
 
     @org.junit.jupiter.api.Test
     void solveTesr3() {
+        double num = 0.8;
+        int k = 5;
+        myLog a = new myLog(num,k);
 
         NumberFormat formatter = NumberFormat.getNumberInstance();
-        formatter.setMaximumFractionDigits(6);
+        formatter.setMaximumFractionDigits(k);
+        Double upsilon = Math.pow(10, -(k));
 
+        Double expected = Math.log((1+num)/(1-num));
+        Double actual = Double.parseDouble(formatter.format(a.Solve())); //trimmed result of myLog.Solve
 
-        myLog a = new myLog(0.7,6);
-        assertEquals(a.Solve(),Double.parseDouble(formatter.format(Math.log((1+0.7)/(1-0.7)))));
+        assertTrue(Math.abs(actual-expected)<upsilon);
     }
 }
